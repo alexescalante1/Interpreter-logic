@@ -6,14 +6,6 @@ namespace Interpreter.Test
 {
     static class InterpreterTest
     {
-        private static string Minify(string script)
-        {
-            return string.Join(" ", script
-                .Split('\n')
-                .Select(line => line.Trim())
-                .Where(line => !string.IsNullOrEmpty(line)));
-        }
-
         //=======================================================================================================
         // RUN TESTS
         //=======================================================================================================
@@ -90,7 +82,7 @@ namespace Interpreter.Test
 
         public static string ScriptSuiteCompleta()
         {
-            return Minify(@"
+            return TextMinifyHelper.Minify(@"
                 Mostrar(""=== SUITE COMPLETA ==="");
                 int numero = 42;
                 string texto = ""Hola Mundo"";
@@ -960,7 +952,7 @@ namespace Interpreter.Test
 
         public static string ScriptMutacionBasica()
         {
-            return Minify(@"
+            return TextMinifyHelper.Minify(@"
                 object cliente = input.cliente;
                 cliente.saldo = cliente.saldo + 100.01;
                 object bonificacion = { tipo: ""bonificacion"", monto: 100 };
@@ -971,7 +963,7 @@ namespace Interpreter.Test
 
         public static string ScriptControlFlow()
         {
-            return Minify(@"
+            return TextMinifyHelper.Minify(@"
                 Mostrar(""=== IF / ELSEIF / ELSE ==="");
                 int score = 82;
                 IF(score >= 90) { Mostrar(""A""); }
@@ -1004,7 +996,7 @@ namespace Interpreter.Test
 
         public static string ScriptCollections()
         {
-            return Minify(@"
+            return TextMinifyHelper.Minify(@"
                 list numeros = [];
                 ListAdd(numeros, 10);
                 ListAdd(numeros, 20);
@@ -1021,7 +1013,7 @@ namespace Interpreter.Test
 
         public static string ScriptJson()
         {
-            return Minify(@"
+            return TextMinifyHelper.Minify(@"
                 object obj = { id: 1, nombre: ""Widget"", precio: 99.5 };
                 obj.precio = obj.precio + 10;
                 string jsonSalida = JsonStringify(obj);
@@ -1032,7 +1024,7 @@ namespace Interpreter.Test
 
         public static string ScriptJsonExterno()
         {
-            return Minify(@"
+            return TextMinifyHelper.Minify(@"
                 list descuentos = [];
 
                 object req1 = { monto: input.precio, factor: input.factor };
@@ -1058,7 +1050,7 @@ namespace Interpreter.Test
 
         public static string ScriptTopCategorias()
         {
-            return Minify(@"
+            return TextMinifyHelper.Minify(@"
                 list categorias = TopCategorias({ preferencia: input.preferencia });
                 Mostrar(""Total categorias:"", ListCount(categorias));
                 object primera = categorias[0];
