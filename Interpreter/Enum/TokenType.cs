@@ -1,0 +1,18 @@
+﻿namespace Interpreter.Enum
+{
+    public enum TokenType
+    {
+        INT, DECIMAL, STRING, BOOL, LIST, OBJECT,
+        IF, ELSE, ELSEIF,
+        SWITCH, CASE, DEFAULT,
+        WHILE, FOR, BREAK, CONTINUE,
+        AND, OR, NOT,
+        NUMBER, STRING_LITERAL, TRUE, FALSE,
+        IDENTIFIER,
+        ASSIGN, PLUS, MINUS, MULTIPLY, DIVIDE, MODULO,
+        EQUAL, NOT_EQUAL, LESS, GREATER, LESS_EQUAL, GREATER_EQUAL,
+        LPAREN, RPAREN, LBRACE, RBRACE, LBRACKET, RBRACKET,
+        SEMICOLON, COLON, COMMA, DOT,
+        EOF
+    }
+}

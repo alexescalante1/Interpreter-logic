@@ -1,0 +1,7 @@
+/.claude
+/.vs
+/INTERPRETE/obj/
+/INTERPRETE/bin/
+*.user
+.vscode/
+*.log
