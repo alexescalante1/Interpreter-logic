@@ -8,7 +8,6 @@ namespace Interpreter.Service
         private static readonly object _lock = new();
         private static ScriptInterpreter? _instance;
 
-        // Obtiene una instancia única del intérprete. Si cambias el script se vuelve a preparar (lexer + parser).
         public static ScriptInterpreter GetInstance(string script, Dictionary<string, IInternalFunction> internalFunctions, bool warmup = true)
         {
             if (internalFunctions == null) throw new ArgumentNullException(nameof(internalFunctions));

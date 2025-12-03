@@ -8,12 +8,12 @@ namespace Interpreter.Core.Lexer
     {
         private static readonly Dictionary<string, TokenType> Keywords = new()
         {
-            { "int", TokenType.INT },
-            { "decimal", TokenType.DECIMAL },
-            { "string", TokenType.STRING },
-            { "bool", TokenType.BOOL },
-            { "list", TokenType.LIST },
-            { "object", TokenType.OBJECT },
+            { "NUMERIC", TokenType.INT },
+            { "DECIMAL", TokenType.DECIMAL },
+            { "STRING", TokenType.STRING },
+            { "BOOL", TokenType.BOOL },
+            { "LIST", TokenType.LIST },
+            { "OBJECT", TokenType.OBJECT },
             { "IF", TokenType.IF },
             { "ELSE", TokenType.ELSE },
             { "ELSEIF", TokenType.ELSEIF },

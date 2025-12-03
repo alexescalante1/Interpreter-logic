@@ -136,14 +136,14 @@ namespace Interpreter.Core.Script
 
         private VariableTypeEnum ParseVariableType(string type)
         {
-            return type.ToLower() switch
+            return type switch
             {
-                "int" => VariableTypeEnum.INT,
-                "decimal" => VariableTypeEnum.DECIMAL,
-                "string" => VariableTypeEnum.STRING,
-                "bool" => VariableTypeEnum.BOOL,
-                "list" => VariableTypeEnum.LIST,
-                "object" => VariableTypeEnum.OBJECT,
+                "NUMERIC" => VariableTypeEnum.INT,
+                "DECIMAL" => VariableTypeEnum.DECIMAL,
+                "STRING" => VariableTypeEnum.STRING,
+                "BOOL" => VariableTypeEnum.BOOL,
+                "LIST" => VariableTypeEnum.LIST,
+                "OBJECT" => VariableTypeEnum.OBJECT,
                 _ => throw new Exception($"Tipo de variable desconocido: {type}")
             };
         }

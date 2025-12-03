@@ -150,7 +150,7 @@ namespace Interpreter.Core.Parser
 
             IExpression value;
 
-            if (type == "list" && _tokens[_current].Type == TokenType.LBRACKET)
+            if (type == "LIST" && _tokens[_current].Type == TokenType.LBRACKET)
             {
                 _current++; // [
                 if (_tokens[_current].Type != TokenType.RBRACKET)

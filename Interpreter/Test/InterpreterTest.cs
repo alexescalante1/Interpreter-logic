@@ -84,10 +84,10 @@ namespace Interpreter.Test
         {
             return TextMinifyHelper.Minify(@"
                 Mostrar(""=== SUITE COMPLETA ==="");
-                int numero = 42;
-                string texto = ""Hola Mundo"";
-                bool esVerdadero = true;
-                bool esFalso = false;
+                NUMERIC numero = 42;
+                STRING texto = ""Hola Mundo"";
+                BOOL esVerdadero = true;
+                BOOL esFalso = false;
                 
                 Mostrar(numero);
                 Mostrar(texto);
@@ -95,12 +95,12 @@ namespace Interpreter.Test
                 Mostrar(esFalso);
 
                 Mostrar(""=== TEST 2: ARITMETICA ==="");
-                int suma = 10 + 5;
-                int resta = 20 - 8;
-                int multiplicacion = 6 * 7;
-                int division = 100 / 4;
-                int modulo = 17 % 5;
-                int compleja = 10 + 5 * 2 - 8 / 4;
+                NUMERIC suma = 10 + 5;
+                NUMERIC resta = 20 - 8;
+                NUMERIC multiplicacion = 6 * 7;
+                NUMERIC division = 100 / 4;
+                NUMERIC modulo = 17 % 5;
+                NUMERIC compleja = 10 + 5 * 2 - 8 / 4;
                 
                 Mostrar(suma);
                 Mostrar(resta);
@@ -110,8 +110,8 @@ namespace Interpreter.Test
                 Mostrar(compleja);
 
                 Mostrar(""=== TEST 3: COMPARACIONES ==="");
-                int a = 10;
-                int b = 20;
+                NUMERIC a = 10;
+                NUMERIC b = 20;
                 
                 IF(a < b)
                 {
@@ -148,8 +148,8 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 4: LOGICA ==="");
-                bool verdad = true;
-                bool mentira = false;
+                BOOL verdad = true;
+                BOOL mentira = false;
                 
                 IF(verdad AND verdad)
                 {
@@ -185,7 +185,7 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 5: IF ANIDADO ==="");
-                int puntuacion = 85;
+                NUMERIC puntuacion = 85;
                 
                 IF(puntuacion >= 90)
                 {
@@ -209,7 +209,7 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 6: SWITCH ==="");
-                int dia = 3;
+                NUMERIC dia = 3;
                 
                 SWITCH(dia)
                 {
@@ -231,7 +231,7 @@ namespace Interpreter.Test
                         Mostrar(""Dia invalido"");
                 }
                 
-                string color = ""rojo"";
+                STRING color = ""rojo"";
                 SWITCH(color)
                 {
                     CASE(""rojo""):
@@ -245,16 +245,16 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 7: WHILE ==="");
-                int contador = 0;
+                NUMERIC contador = 0;
                 WHILE(contador < 5)
                 {
                     Mostrar(contador);
                     contador = contador + 1;
                 }
                 
-                int factorial = 1;
-                int n = 5;
-                int i = 1;
+                NUMERIC factorial = 1;
+                NUMERIC n = 5;
+                NUMERIC i = 1;
                 WHILE(i <= n)
                 {
                     factorial = factorial * i;
@@ -264,38 +264,38 @@ namespace Interpreter.Test
                 Mostrar(factorial);
 
                 Mostrar(""=== TEST 8: FOR ==="");
-                FOR(int x = 0; x < 5; x = x + 1)
+                FOR(NUMERIC x = 0; x < 5; x = x + 1)
                 {
                     Mostrar(x);
                 }
                 
                 Mostrar(""Tabla del 5:"");
-                FOR(int j = 1; j <= 10; j = j + 1)
+                FOR(NUMERIC j = 1; j <= 10; j = j + 1)
                 {
-                    int resultadoTabla = 5 * j;
+                    NUMERIC resultadoTabla = 5 * j;
                     Mostrar(resultadoTabla);
                 }
 
                 Mostrar(""=== TEST 9: SCOPES ==="");
-                int global = 100;
+                NUMERIC global = 100;
                 Mostrar(global);
                 
-                FOR(int local = 0; local < 3; local = local + 1)
+                FOR(NUMERIC local = 0; local < 3; local = local + 1)
                 {
-                    int dentroFor = 999;
+                    NUMERIC dentroFor = 999;
                     Mostrar(local);
                     Mostrar(global);
                 }
 
                 Mostrar(""=== TEST 10: ANIDAMIENTO ==="");
-                int nivel1 = 1;
+                NUMERIC nivel1 = 1;
                 
                 IF(nivel1 == 1)
                 {
-                    int nivel2 = 2;
+                    NUMERIC nivel2 = 2;
                     Mostrar(nivel2);
                     
-                    FOR(int nivel3 = 0; nivel3 < 2; nivel3 = nivel3 + 1)
+                    FOR(NUMERIC nivel3 = 0; nivel3 < 2; nivel3 = nivel3 + 1)
                     {
                         Mostrar(nivel3);
                         
@@ -308,37 +308,37 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 11: STRINGS ==="");
-                string nombre = ""Juan"";
-                string apellido = ""Perez"";
-                string nombreCompleto = nombre + "" "" + apellido;
+                STRING nombre = ""Juan"";
+                STRING apellido = ""Perez"";
+                STRING nombreCompleto = nombre + "" "" + apellido;
                 Mostrar(nombreCompleto);
                 
-                string mensaje = ""Hola "" + nombre + "", tienes "" + 30 + "" años"";
+                STRING mensaje = ""Hola "" + nombre + "", tienes "" + 30 + "" años"";
                 Mostrar(mensaje);
 
                 Mostrar(""=== TEST 12: EXPRESIONES COMPLEJAS ==="");
-                int x1 = 10;
-                int y1 = 20;
-                int z1 = 30;
+                NUMERIC x1 = 10;
+                NUMERIC y1 = 20;
+                NUMERIC z1 = 30;
                 
                 IF((x1 < y1 AND y1 < z1) OR x1 == 10)
                 {
                     Mostrar(""Expresion compleja evaluada correctamente"");
                 }
                 
-                int calculo = (10 + 20) * 2 - 15 / 3;
+                NUMERIC calculo = (10 + 20) * 2 - 15 / 3;
                 Mostrar(calculo);
 
                 Mostrar(""=== TEST 13: NEGACION ==="");
-                int positivo = 50;
-                int negativo = -positivo;
+                NUMERIC positivo = 50;
+                NUMERIC negativo = -positivo;
                 Mostrar(negativo);
                 
-                int resultadoNeg = -10 + 20;
+                NUMERIC resultadoNeg = -10 + 20;
                 Mostrar(resultadoNeg);
 
                 Mostrar(""=== TEST 14: REASIGNACION ==="");
-                int variable = 10;
+                NUMERIC variable = 10;
                 Mostrar(variable);
                 
                 variable = 20;
@@ -351,8 +351,8 @@ namespace Interpreter.Test
                 Mostrar(variable);
 
                 Mostrar(""=== TEST 15: BUCLES CONDICIONALES ==="");
-                int suma2 = 0;
-                FOR(int k = 1; k <= 10; k = k + 1)
+                NUMERIC suma2 = 0;
+                FOR(NUMERIC k = 1; k <= 10; k = k + 1)
                 {
                     IF(k % 2 == 0)
                     {
@@ -371,9 +371,9 @@ namespace Interpreter.Test
                 Mostrar(false);
 
                 Mostrar(""=== TEST 17: EDGE CASES ARITMETICOS ==="");
-                int cero = 0;
-                int uno = 1;
-                int negativo1 = -1;
+                NUMERIC cero = 0;
+                NUMERIC uno = 1;
+                NUMERIC negativo1 = -1;
                 
                 Mostrar(""Multiplicacion por 0:"", 5 * cero);
                 Mostrar(""Multiplicacion por 1:"", 5 * uno);
@@ -382,13 +382,13 @@ namespace Interpreter.Test
                 Mostrar(""Suma con negativos:"", 10 + negativo1);
                 Mostrar(""Resta con negativos:"", 10 - negativo1);
                 
-                int expresionCompleja = -5 * 3 + 20 / 4 - 2;
+                NUMERIC expresionCompleja = -5 * 3 + 20 / 4 - 2;
                 Mostrar(""Expresion con negativos:"", expresionCompleja);
 
                 Mostrar(""=== TEST 18: COMPARACIONES EXTREMAS ==="");
-                int minimo = -100;
-                int maximo = 100;
-                int medio = 0;
+                NUMERIC minimo = -100;
+                NUMERIC maximo = 100;
+                NUMERIC medio = 0;
                 
                 IF(minimo < medio AND medio < maximo)
                 {
@@ -406,23 +406,23 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 19: STRINGS ESPECIALES ==="");
-                string vacio = """";
-                string espacios = ""   "";
-                string numerosStr = ""12345"";
-                string especiales = ""!@#$%"";
+                STRING vacio = """";
+                STRING espacios = ""   "";
+                STRING numerosStr = ""12345"";
+                STRING especiales = ""!@#$%"";
                 
                 Mostrar(""Cadena vacia:"", vacio, ""<fin"");
                 Mostrar(""Espacios:"", espacios, ""<fin"");
-                Mostrar(""Numeros como string:"", numerosStr);
+                Mostrar(""Numeros como STRING:"", numerosStr);
                 Mostrar(""Caracteres especiales:"", especiales);
                 
-                string concatenada = vacio + ""hola"" + espacios + ""mundo"";
+                STRING concatenada = vacio + ""hola"" + espacios + ""mundo"";
                 Mostrar(""Concatenacion compleja:"", concatenada);
 
                 Mostrar(""=== TEST 20: LOGICA BOOLEANA AVANZADA ==="");
-                bool a1 = true;
-                bool b1 = false;
-                bool c1 = true;
+                BOOL a1 = true;
+                BOOL b1 = false;
+                BOOL c1 = true;
                 
                 IF(a1 AND b1 OR c1)
                 {
@@ -441,7 +441,7 @@ namespace Interpreter.Test
 
                 Mostrar(""=== TEST 21: SWITCH EXHAUSTIVO ==="");
                 
-                FOR(int testDia = 0; testDia <= 8; testDia = testDia + 1)
+                FOR(NUMERIC testDia = 0; testDia <= 8; testDia = testDia + 1)
                 {
                     SWITCH(testDia)
                     {
@@ -461,8 +461,8 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 22: WHILE COMPLEJO ==="");
-                int a2 = 0;
-                int b2 = 10;
+                NUMERIC a2 = 0;
+                NUMERIC b2 = 10;
                 
                 WHILE(a2 < 5 AND b2 > 5)
                 {
@@ -471,7 +471,7 @@ namespace Interpreter.Test
                     b2 = b2 - 1;
                 }
                 
-                int contador2 = 0;
+                NUMERIC contador2 = 0;
                 WHILE(contador2 < 3 OR contador2 == 0)
                 {
                     Mostrar(""Contador OR:"", contador2);
@@ -483,34 +483,34 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 23: FOR DECREMENTAL ==="");
-                FOR(int dec = 10; dec > 0; dec = dec - 1)
+                FOR(NUMERIC dec = 10; dec > 0; dec = dec - 1)
                 {
                     Mostrar(""Cuenta regresiva:"", dec);
                 }
                 
-                FOR(int dec2 = 20; dec2 >= 10; dec2 = dec2 - 2)
+                FOR(NUMERIC dec2 = 20; dec2 >= 10; dec2 = dec2 - 2)
                 {
                     Mostrar(""Decremento de 2:"", dec2);
                 }
 
                 Mostrar(""=== TEST 24: SCOPES PROFUNDOS ==="");
-                int nivel0 = 0;
+                NUMERIC nivel0 = 0;
                 
                 IF(nivel0 == 0)
                 {
-                    int nivel1Var = 1;
+                    NUMERIC nivel1Var = 1;
                     
                     IF(nivel1Var == 1)
                     {
-                        int nivel2Var = 2;
+                        NUMERIC nivel2Var = 2;
                         
                         IF(nivel2Var == 2)
                         {
-                            int nivel3Var = 3;
+                            NUMERIC nivel3Var = 3;
                             
                             IF(nivel3Var == 3)
                             {
-                                int nivel4Var = 4;
+                                NUMERIC nivel4Var = 4;
                                 Mostrar(""Nivel 4 alcanzado:"", nivel4Var);
                                 Mostrar(""Acceso a nivel 0:"", nivel0);
                             }
@@ -519,23 +519,23 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 25: MATEMATICAS COMPLEJAS ==="");
-                int resultado1 = ((10 + 5) * 3 - 8) / 2 + 10;
+                NUMERIC resultado1 = ((10 + 5) * 3 - 8) / 2 + 10;
                 Mostrar(""Resultado 1:"", resultado1);
                 
-                int resultado2 = 100 - (50 / 2) + (20 * 3) - 15;
+                NUMERIC resultado2 = 100 - (50 / 2) + (20 * 3) - 15;
                 Mostrar(""Resultado 2:"", resultado2);
                 
-                int resultado3 = (((2 + 3) * 4) - 5) / 3;
+                NUMERIC resultado3 = (((2 + 3) * 4) - 5) / 3;
                 Mostrar(""Resultado 3:"", resultado3);
                 
-                int a3 = 10;
-                int b3 = 20;
-                int c3 = 30;
-                int resultado4 = (a3 + b3) * c3 / (b3 - a3);
+                NUMERIC a3 = 10;
+                NUMERIC b3 = 20;
+                NUMERIC c3 = 30;
+                NUMERIC resultado4 = (a3 + b3) * c3 / (b3 - a3);
                 Mostrar(""Resultado 4:"", resultado4);
 
                 Mostrar(""=== TEST 26: CONDICIONES ENCADENADAS ==="");
-                int valor = 50;
+                NUMERIC valor = 50;
                 
                 IF(valor > 0)
                 {
@@ -558,8 +558,8 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 27: BUCLES MULTI-CONDICION ==="");
-                int x2 = 0;
-                int y2 = 10;
+                NUMERIC x2 = 0;
+                NUMERIC y2 = 10;
                 
                 WHILE(x2 < 5 AND y2 > 0)
                 {
@@ -576,39 +576,39 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST DE LISTAS BASICAS ==="");
-                list miLista = [];
+                LIST miLista = [];
 
                 ListAdd(miLista, 10);
                 ListAdd(miLista, ""Hola"");
                 ListAdd(miLista, true);
                 ListAdd(miLista, 42);
 
-                int total = ListCount(miLista);
+                NUMERIC total = ListCount(miLista);
                 Mostrar(""Total elementos:"", total);
 
-                FOR(int idx = 0; idx < ListCount(miLista); idx = idx + 1)
+                FOR(NUMERIC idx = 0; idx < ListCount(miLista); idx = idx + 1)
                 {
                     Mostrar(""Elemento"", idx, "":"", miLista[idx]);
                 }
 
                 Mostrar(""=== TEST 28: LISTAS CON OPERACIONES ==="");
-                list numerosLista = [];
+                LIST numerosLista = [];
                 
-                FOR(int n1 = 1; n1 <= 5; n1 = n1 + 1)
+                FOR(NUMERIC n1 = 1; n1 <= 5; n1 = n1 + 1)
                 {
                     ListAdd(numerosLista, n1 * 10);
                 }
                 
-                int sumaLista = 0;
-                FOR(int n2 = 0; n2 < ListCount(numerosLista); n2 = n2 + 1)
+                NUMERIC sumaLista = 0;
+                FOR(NUMERIC n2 = 0; n2 < ListCount(numerosLista); n2 = n2 + 1)
                 {
-                    int valorActual = numerosLista[n2];
+                    NUMERIC valorActual = numerosLista[n2];
                     sumaLista = sumaLista + valorActual;
                     Mostrar(""Elemento:"", valorActual, ""- Suma acumulada:"", sumaLista);
                 }
 
                 Mostrar(""=== TEST 29: LISTAS EDGE CASES ==="");
-                list listaVacia = [];
+                LIST listaVacia = [];
                 Mostrar(""Lista vacia, count:"", ListCount(listaVacia));
                 
                 ListAdd(listaVacia, ""primer elemento"");
@@ -627,26 +627,26 @@ namespace Interpreter.Test
 
                 Mostrar(""=== TEST DE OBJETOS BASICOS ==="");
 
-                object persona = { nombre: ""Juan"", edad: 30, activo: true };
+                OBJECT persona = { nombre: ""Juan"", edad: 30, activo: true };
 
                 Mostrar(""Nombre:"", persona.nombre);
                 Mostrar(""Edad:"", persona.edad);
                 Mostrar(""Activo:"", persona.activo);
 
                 Mostrar(""=== TEST 30: LISTA DE OBJETOS ==="");
-                list personas = [];
+                LIST personas = [];
                 ListAdd(personas, { nombre: ""Maria"", edad: 25 });
                 ListAdd(personas, { nombre: ""Pedro"", edad: 35 });
                 ListAdd(personas, { nombre: ""Ana"", edad: 28 });
 
-                FOR(int i = 0; i < ListCount(personas); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(personas); i = i + 1)
                 {
-                    object p = personas[i];
+                    OBJECT p = personas[i];
                     Mostrar(""Persona:"", p.nombre, ""-"", p.edad);
                 }
 
                 Mostrar(""=== TEST 31: OBJETOS MIXTOS ==="");
-                object producto = { 
+                OBJECT producto = { 
                     id: 100, 
                     nombre: ""Laptop"", 
                     precio: 1500, 
@@ -662,7 +662,7 @@ namespace Interpreter.Test
 
                 Mostrar(""=== TEST 32: LISTA DE PRODUCTOS COMPLETA ==="");
 
-                list productos = [];
+                LIST productos = [];
 
                 ListAdd(productos, { id: 1, nombre: ""Laptop"", precio: 1500, stock: 10 });
                 ListAdd(productos, { id: 2, nombre: ""Mouse"", precio: 25, stock: 50 });
@@ -670,17 +670,17 @@ namespace Interpreter.Test
                 ListAdd(productos, { id: 4, nombre: ""Monitor"", precio: 300, stock: 15 });
                 ListAdd(productos, { id: 5, nombre: ""Webcam"", precio: 80, stock: 25 });
 
-                FOR(int i = 0; i < ListCount(productos); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(productos); i = i + 1)
                 {
-                    object prod = productos[i];
+                    OBJECT prod = productos[i];
                     Mostrar(""ID:"", prod.id, ""- Nombre:"", prod.nombre, ""- Precio:"", prod.precio, ""- Stock:"", prod.stock);
                 }
 
-                int valorTotal = 0;
-                FOR(int i = 0; i < ListCount(productos); i = i + 1)
+                NUMERIC valorTotal = 0;
+                FOR(NUMERIC i = 0; i < ListCount(productos); i = i + 1)
                 {
-                    object prod = productos[i];
-                    int valorProducto = prod.precio * prod.stock;
+                    OBJECT prod = productos[i];
+                    NUMERIC valorProducto = prod.precio * prod.stock;
                     valorTotal = valorTotal + valorProducto;
                 }
                 Mostrar(""Valor total del inventario:"", valorTotal);
@@ -688,9 +688,9 @@ namespace Interpreter.Test
                 Mostrar(""=== TEST 33: FILTRADO DE PRODUCTOS ==="");
                 Mostrar(""Productos con stock bajo (menos de 20):"");
                 
-                FOR(int i = 0; i < ListCount(productos); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(productos); i = i + 1)
                 {
-                    object prod = productos[i];
+                    OBJECT prod = productos[i];
                     IF(prod.stock < 20)
                     {
                         Mostrar(""ALERTA -"", prod.nombre, ""- Stock:"", prod.stock);
@@ -698,9 +698,9 @@ namespace Interpreter.Test
                 }
                 
                 Mostrar(""Productos caros (mas de 100):"");
-                FOR(int i = 0; i < ListCount(productos); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(productos); i = i + 1)
                 {
-                    object prod = productos[i];
+                    OBJECT prod = productos[i];
                     IF(prod.precio > 100)
                     {
                         Mostrar(""PREMIUM -"", prod.nombre, ""- Precio:"", prod.precio);
@@ -709,7 +709,7 @@ namespace Interpreter.Test
 
                 Mostrar(""=== TEST 34: LISTA DE EMPLEADOS ==="");
 
-                list empleados = [];
+                LIST empleados = [];
 
                 ListAdd(empleados, { nombre: ""Juan Perez"", edad: 35, salario: 3000, activo: true });
                 ListAdd(empleados, { nombre: ""Maria Lopez"", edad: 28, salario: 3500, activo: true });
@@ -718,10 +718,10 @@ namespace Interpreter.Test
                 ListAdd(empleados, { nombre: ""Luis Gomez"", edad: 45, salario: 4500, activo: false });
 
                 Mostrar(""Empleados activos:"");
-                int contadorActivos = 0;
-                FOR(int i = 0; i < ListCount(empleados); i = i + 1)
+                NUMERIC contadorActivos = 0;
+                FOR(NUMERIC i = 0; i < ListCount(empleados); i = i + 1)
                 {
-                    object emp = empleados[i];
+                    OBJECT emp = empleados[i];
                     IF(emp.activo == true)
                     {
                         Mostrar(""- "", emp.nombre, "" (Edad:"", emp.edad, "", Salario:"", emp.salario, "")"");
@@ -730,24 +730,24 @@ namespace Interpreter.Test
                 }
                 Mostrar(""Total empleados activos:"", contadorActivos);
 
-                int sumaTotal = 0;
-                FOR(int i = 0; i < ListCount(empleados); i = i + 1)
+                NUMERIC sumaTotal = 0;
+                FOR(NUMERIC i = 0; i < ListCount(empleados); i = i + 1)
                 {
-                    object emp = empleados[i];
+                    OBJECT emp = empleados[i];
                     sumaTotal = sumaTotal + emp.salario;
                 }
-                int promedio = sumaTotal / ListCount(empleados);
+                NUMERIC promedio = sumaTotal / ListCount(empleados);
                 Mostrar(""Salario promedio:"", promedio);
 
                 Mostrar(""=== TEST 35: EMPLEADOS POR RANGO DE EDAD ==="");
                 
-                int jovenes = 0;
-                int adultos = 0;
-                int seniors = 0;
+                NUMERIC jovenes = 0;
+                NUMERIC adultos = 0;
+                NUMERIC seniors = 0;
                 
-                FOR(int i = 0; i < ListCount(empleados); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(empleados); i = i + 1)
                 {
-                    object emp = empleados[i];
+                    OBJECT emp = empleados[i];
                     
                     IF(emp.edad < 30)
                     {
@@ -769,7 +769,7 @@ namespace Interpreter.Test
 
                 Mostrar(""=== TEST 36: LISTA DE TRANSACCIONES ==="");
 
-                list transacciones = [];
+                LIST transacciones = [];
 
                 ListAdd(transacciones, { tipo: ""deposito"", monto: 1000, fecha: ""2025-01-15"" });
                 ListAdd(transacciones, { tipo: ""retiro"", monto: 250, fecha: ""2025-01-16"" });
@@ -778,15 +778,15 @@ namespace Interpreter.Test
                 ListAdd(transacciones, { tipo: ""deposito"", monto: 750, fecha: ""2025-01-19"" });
                 ListAdd(transacciones, { tipo: ""retiro"", monto: 300, fecha: ""2025-01-20"" });
 
-                int balance = 0;
-                int totalDepositos = 0;
-                int totalRetiros = 0;
-                int cantidadDepositos = 0;
-                int cantidadRetiros = 0;
+                NUMERIC balance = 0;
+                NUMERIC totalDepositos = 0;
+                NUMERIC totalRetiros = 0;
+                NUMERIC cantidadDepositos = 0;
+                NUMERIC cantidadRetiros = 0;
                 
-                FOR(int i = 0; i < ListCount(transacciones); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(transacciones); i = i + 1)
                 {
-                    object trans = transacciones[i];
+                    OBJECT trans = transacciones[i];
     
                     IF(trans.tipo == ""deposito"")
                     {
@@ -813,10 +813,10 @@ namespace Interpreter.Test
 
                 Mostrar(""=== TEST 37: OBJETOS ANIDADOS ==="");
 
-                list pedidos = [];
+                LIST pedidos = [];
 
-                object cliente1 = { nombre: ""Juan"", telefono: ""123456"" };
-                object producto1 = { nombre: ""Laptop"", precio: 1500 };
+                OBJECT cliente1 = { nombre: ""Juan"", telefono: ""123456"" };
+                OBJECT producto1 = { nombre: ""Laptop"", precio: 1500 };
 
                 ListAdd(pedidos, { 
                     id: 1, 
@@ -825,8 +825,8 @@ namespace Interpreter.Test
                     cantidad: 2 
                 });
 
-                object cliente2 = { nombre: ""Maria"", telefono: ""789012"" };
-                object producto2 = { nombre: ""Mouse"", precio: 25 };
+                OBJECT cliente2 = { nombre: ""Maria"", telefono: ""789012"" };
+                OBJECT producto2 = { nombre: ""Mouse"", precio: 25 };
 
                 ListAdd(pedidos, { 
                     id: 2, 
@@ -835,36 +835,36 @@ namespace Interpreter.Test
                     cantidad: 5 
                 });
 
-                FOR(int i = 0; i < ListCount(pedidos); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(pedidos); i = i + 1)
                 {
-                    object pedido = pedidos[i];
-                    object cliente = pedido.cliente;
-                    object producto3 = pedido.producto;
+                    OBJECT pedido = pedidos[i];
+                    OBJECT cliente = pedido.cliente;
+                    OBJECT producto3 = pedido.producto;
                     
                     Mostrar(""Pedido ID:"", pedido.id);
                     Mostrar(""Cliente:"", cliente.nombre, ""- Tel:"", cliente.telefono);
                     Mostrar(""Producto:"", producto3.nombre, ""- Precio:"", producto3.precio);
                     Mostrar(""Cantidad:"", pedido.cantidad);
                     
-                    int totalPedido = producto3.precio * pedido.cantidad;
+                    NUMERIC totalPedido = producto3.precio * pedido.cantidad;
                     Mostrar(""Total pedido:"", totalPedido);
                     Mostrar(""---"");
                 }
 
                 Mostrar(""=== TEST 38: BUSQUEDA EN LISTA ==="");
 
-                list usuarios = [];
+                LIST usuarios = [];
                 ListAdd(usuarios, { id: 1, nombre: ""Juan"", email: ""juan@mail.com"" });
                 ListAdd(usuarios, { id: 2, nombre: ""Maria"", email: ""maria@mail.com"" });
                 ListAdd(usuarios, { id: 3, nombre: ""Pedro"", email: ""pedro@mail.com"" });
                 ListAdd(usuarios, { id: 4, nombre: ""Ana"", email: ""ana@mail.com"" });
 
-                int buscarId = 2;
-                bool encontrado = false;
+                NUMERIC buscarId = 2;
+                BOOL encontrado = false;
 
-                FOR(int i = 0; i < ListCount(usuarios); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(usuarios); i = i + 1)
                 {
-                    object user = usuarios[i];
+                    OBJECT user = usuarios[i];
                     IF(user.id == buscarId)
                     {
                         Mostrar(""Usuario encontrado:"", user.nombre, ""-"", user.email);
@@ -881,9 +881,9 @@ namespace Interpreter.Test
                 buscarId = 999;
                 encontrado = false;
                 
-                FOR(int i = 0; i < ListCount(usuarios); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(usuarios); i = i + 1)
                 {
-                    object user = usuarios[i];
+                    OBJECT user = usuarios[i];
                     IF(user.id == buscarId)
                     {
                         encontrado = true;
@@ -896,7 +896,7 @@ namespace Interpreter.Test
                 }
 
                 Mostrar(""=== TEST 39: MODIFICACION DE PROPIEDADES ==="");
-                object config = { modo: ""normal"", nivel: 1, activo: false };
+                OBJECT config = { modo: ""normal"", nivel: 1, activo: false };
                 
                 Mostrar(""Estado inicial:"");
                 Mostrar(""Modo:"", config.modo);
@@ -914,21 +914,21 @@ namespace Interpreter.Test
 
                 Mostrar(""=== TEST 40: CONTADORES Y ESTADISTICAS ==="");
                 
-                list ventas = [];
+                LIST ventas = [];
                 ListAdd(ventas, { producto: ""A"", cantidad: 10, precio: 100 });
                 ListAdd(ventas, { producto: ""B"", cantidad: 5, precio: 200 });
                 ListAdd(ventas, { producto: ""C"", cantidad: 15, precio: 50 });
                 ListAdd(ventas, { producto: ""D"", cantidad: 8, precio: 150 });
                 
-                int totalVentas = 0;
-                int cantidadTotal = 0;
-                int ventaMayor = 0;
-                string productoMayor = """";
+                NUMERIC totalVentas = 0;
+                NUMERIC cantidadTotal = 0;
+                NUMERIC ventaMayor = 0;
+                STRING productoMayor = """";
                 
-                FOR(int i = 0; i < ListCount(ventas); i = i + 1)
+                FOR(NUMERIC i = 0; i < ListCount(ventas); i = i + 1)
                 {
-                    object venta = ventas[i];
-                    int montoVenta = venta.cantidad * venta.precio;
+                    OBJECT venta = ventas[i];
+                    NUMERIC montoVenta = venta.cantidad * venta.precio;
                     totalVentas = totalVentas + montoVenta;
                     cantidadTotal = cantidadTotal + venta.cantidad;
                     
@@ -953,11 +953,11 @@ namespace Interpreter.Test
         public static string ScriptMutacionBasica()
         {
             return TextMinifyHelper.Minify(@"
-                object cliente = input.cliente;
+                OBJECT cliente = input.cliente;
                 cliente.saldo = cliente.saldo + 100.01;
-                object bonificacion = { tipo: ""bonificacion"", monto: 100 };
+                OBJECT bonificacion = { tipo: ""bonificacion"", monto: 100 };
                 ListAdd(input.transacciones, bonificacion);
-                object output = input;
+                OBJECT output = input;
             ");
         }
 
@@ -965,12 +965,12 @@ namespace Interpreter.Test
         {
             return TextMinifyHelper.Minify(@"
                 Mostrar(""=== IF / ELSEIF / ELSE ==="");
-                int score = 82;
+                NUMERIC score = 82;
                 IF(score >= 90) { Mostrar(""A""); }
                 ELSEIF(score >= 80) { Mostrar(""B""); }
                 ELSE { Mostrar(""C o menos""); }
                 Mostrar(""=== SWITCH ==="");
-                int dia = 3;
+                NUMERIC dia = 3;
                 SWITCH(dia)
                 {
                     CASE(1): Mostrar(""Lunes"");
@@ -979,63 +979,63 @@ namespace Interpreter.Test
                     DEFAULT: Mostrar(""Otro"");
                 }
                 Mostrar(""=== WHILE ==="");
-                int i = 0;
+                NUMERIC i = 0;
                 WHILE(i < 3)
                 {
                     Mostrar(""i ="", i);
                     i = i + 1;
                 }
                 Mostrar(""=== FOR ==="");
-                FOR(int j = 0; j < 3; j = j + 1)
+                FOR(NUMERIC j = 0; j < 3; j = j + 1)
                 {
                     Mostrar(""j ="", j);
                 }
-                object output = { score: score, dia: dia };
+                OBJECT output = { score: score, dia: dia };
             ");
         }
 
         public static string ScriptCollections()
         {
             return TextMinifyHelper.Minify(@"
-                list numeros = [];
+                LIST numeros = [];
                 ListAdd(numeros, 10);
                 ListAdd(numeros, 20);
                 ListAdd(numeros, 30);
                 Mostrar(""Cantidad:"", ListCount(numeros));
-                int primero = numeros[0];
+                NUMERIC primero = numeros[0];
                 Mostrar(""Primero:"", primero);
-                object persona = { nombre: ""Ana"", edad: 28 };
+                OBJECT persona = { nombre: ""Ana"", edad: 28 };
                 Mostrar(""Nombre:"", persona.nombre, ""Edad:"", persona.edad);
                 persona.edad = persona.edad + 1;
-                object output = { numeros: numeros, persona: persona };
+                OBJECT output = { numeros: numeros, persona: persona };
             ");
         }
 
         public static string ScriptJson()
         {
             return TextMinifyHelper.Minify(@"
-                object obj = { id: 1, nombre: ""Widget"", precio: 99.5 };
+                OBJECT obj = { id: 1, nombre: ""Widget"", precio: 99.5 };
                 obj.precio = obj.precio + 10;
-                string jsonSalida = JsonStringify(obj);
+                STRING jsonSalida = JsonStringify(obj);
                 Mostrar(""JSON modificado:"", jsonSalida);
-                object output = obj;
+                OBJECT output = obj;
             ");
         }
 
         public static string ScriptJsonExterno()
         {
             return TextMinifyHelper.Minify(@"
-                list descuentos = [];
+                LIST descuentos = [];
 
-                object req1 = { monto: input.precio, factor: input.factor };
-                object res1 = AplicarDescuento(req1);
+                OBJECT req1 = { monto: input.precio, factor: input.factor };
+                OBJECT res1 = AplicarDescuento(req1);
                 ListAdd(descuentos, res1);
                 Mostrar(""Descuento 1:"", res1.resultado);
 
                 IF(res1.monto > 1000)
                 {
-                    object req2 = { monto: input.precio2, factor: input.factor2 * 2 };
-                    object res2 = AplicarDescuento(req2);
+                    OBJECT req2 = { monto: input.precio2, factor: input.factor2 * 2 };
+                    OBJECT res2 = AplicarDescuento(req2);
                     ListAdd(descuentos, res2);
                     Mostrar(""Descuento 2:"", res2.resultado);
                 }
@@ -1044,18 +1044,18 @@ namespace Interpreter.Test
                     Mostrar(""Se omite segundo descuento"");
                 }
 
-                object output = { descuentos: descuentos };
+                OBJECT output = { descuentos: descuentos };
             ");
         }
 
         public static string ScriptTopCategorias()
         {
             return TextMinifyHelper.Minify(@"
-                list categorias = TopCategorias({ preferencia: input.preferencia });
+                LIST categorias = TopCategorias({ preferencia: input.preferencia });
                 Mostrar(""Total categorias:"", ListCount(categorias));
-                object primera = categorias[0];
+                OBJECT primera = categorias[0];
                 Mostrar(""Top 1:"", primera.categoria, ""score:"", primera.score, ""pref:"", primera.preferencia);
-                object output = { top: categorias };
+                OBJECT output = { top: categorias };
             ");
         }
 

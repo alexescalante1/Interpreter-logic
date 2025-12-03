@@ -20,7 +20,7 @@ namespace Interpreter.Service
         
         public static object RunExecution(ScriptInterpreter interpreter, Dictionary<string, object?> externalData)
         {
-            interpreter.SetInitialGlobal("input", "object", externalData);
+            interpreter.SetInitialGlobal("input", "OBJECT", externalData);
 
             #if DEBUG
                 interpreter.ExecuteWithMetrics();
